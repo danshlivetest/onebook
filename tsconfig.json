@@ -24,7 +24,14 @@
     "emitDecoratorMetadata": true,
     "skipDefaultLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "baseUrl": ".",
+    "paths": {
+      "@shared/components": ["src/app/shared/components/index.ts"],
+      "@shared/services": ["src/app/shared/services/index.ts"],
+      "@services": ["src/app/services/index.ts"],
+      "@types": ["src/app/types/index.ts"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

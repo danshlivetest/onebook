@@ -1,0 +1,22 @@
+@switch (type) {
+  @case (ButtonType.TEXT) {
+    <button mat-button (click)="whenClicked.emit()">
+      <ng-container [ngTemplateOutlet]="buttonText"></ng-container>
+    </button>
+  }
+  @case (ButtonType.FLAT) {
+    <button mat-flat-button (click)="whenClicked.emit()">
+      <ng-container [ngTemplateOutlet]="buttonText"></ng-container>
+    </button>
+  }
+}
+
+<ng-template #buttonText>
+  <div class="flex items-center">
+    @if(prefixIcon) {
+      <!-- <mat-icon [fontIcon]="prefixIcon"></mat-icon> -->
+       <app-icon class="h-fit" [icon]="prefixIcon"></app-icon>
+    }
+    <ng-content></ng-content>
+  </div>
+</ng-template>

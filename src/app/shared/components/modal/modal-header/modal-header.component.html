@@ -1,0 +1,7 @@
+<div class="w-full px-6 py-4 flex items-center justify-between">
+  <h4 class="text-primary">
+    <ng-content></ng-content>
+  </h4>
+
+  <app-button prefixIcon="close" (whenClicked)="whenClose.emit()"></app-button>
+</div>

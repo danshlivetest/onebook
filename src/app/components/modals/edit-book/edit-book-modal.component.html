@@ -1,0 +1,17 @@
+
+<app-modal-header (whenClose)="close()">{{ header }}</app-modal-header>
+<mat-dialog-content>
+  <app-form-input label="Title" [control]="title"></app-form-input>
+
+  <div class="my-2 grid grid-cols-2 gap-2">
+    <app-form-input label="Author" [control]="author"></app-form-input>
+    <app-form-input label="Year" type="number" [control]="year"></app-form-input>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="w-full flex items-center justify-end">
+    <app-button (whenClicked)="close()">Cancel</app-button>
+    <app-button [type]="ButtonType.FLAT" (whenClicked)="save()">Save</app-button>
+  </div>
+</mat-dialog-actions>

@@ -1,0 +1,7 @@
+<p class="text-base mb-1">{{ label }}</p>
+<mat-form-field appearance="outline" class="w-full">
+  <input matInput [formControl]="control" [type]="type" />
+  @if (control.invalid) {
+    <mat-error>{{errorMessage()}}</mat-error>
+  }
+</mat-form-field>

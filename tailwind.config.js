@@ -8,7 +8,17 @@ module.exports = {
     container: false,
   },
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#005CBB'
+        },
+        blue: {
+          DEFAULT: '#005CBB',
+          
+        }
+      }
+    },
   },
   plugins: [require('@tailwindcss/typography')],
 }
