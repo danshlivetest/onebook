@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef } from '@angular/material/dialog'
-import { ButtonComponent, ButtonType, FormInputComponent , ModalHeaderComponent } from '@shared/components'
+import { ButtonComponent, ButtonType, FormInputComponent , FormTextareaComponent, ModalHeaderComponent } from '@shared/components'
 import { Book, BookForm } from '@types';
 
 export interface EditBookModalData {
@@ -18,8 +18,9 @@ export interface EditBookModalData {
     MatDialogActions,
     ButtonComponent,
     ModalHeaderComponent,
-    FormInputComponent
-]
+    FormInputComponent,
+    FormTextareaComponent
+  ]
 })
 export class EditBookModalComponent implements OnInit, EditBookModalData {
   readonly ButtonType = ButtonType;
@@ -30,15 +31,19 @@ export class EditBookModalComponent implements OnInit, EditBookModalData {
   bookForm!: BookForm;
 
   get title(): FormControl<string> {
-    return this.bookForm.controls.title;
+    return this.bookForm.controls.title as FormControl<string>;
   }
 
   get author(): FormControl<string> {
-    return this.bookForm.controls.author;
+    return this.bookForm.controls.author as FormControl<string>;
   }
 
   get year(): FormControl<number> {
-    return this.bookForm.controls.year;
+    return this.bookForm.controls.year as FormControl<number>;
+  }
+
+  get description(): FormControl<string> {
+    return this.bookForm.controls.description as FormControl<string>;
   }
 
   constructor(
@@ -51,12 +56,17 @@ export class EditBookModalComponent implements OnInit, EditBookModalData {
     this.initForm();
   }
 
-  close(data?: Book): void {
+  close(data?: Partial<Book>): void {
     this.dialogRef.close(data);
   }
 
   save(): void {
-    console.log('LOG: save', this.bookForm.value);
+    if (this.bookForm.invalid) {
+      this.markAllAsTouched();
+      return;
+    }
+
+    this.close(this.bookForm.value);
   }
 
   private setData(): void {
@@ -71,5 +81,13 @@ export class EditBookModalComponent implements OnInit, EditBookModalData {
       year: new FormControl((this.book?.year || new Date().getFullYear()) as number, [Validators.required]),
       description: new FormControl(this.book?.description || ''),
     }) as BookForm;
+  }
+
+  private markAllAsTouched(): void {
+    Object.values(this.bookForm.controls).forEach(control => {
+      control.markAsDirty();
+      control.markAsTouched();
+      control.updateValueAndValidity();
+    });
   }
 }

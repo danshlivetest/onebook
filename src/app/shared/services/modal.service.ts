@@ -15,7 +15,8 @@ export class ModalService {
 
   private createConfig<DataType>(config: MatDialogConfig<DataType>): MatDialogConfig<DataType> {
     const width = get(config, 'width', '560px');
+    const disableClose = get(config, 'disableClose', true);
     const data = get(config, 'data', {}) as DataType;
-    return {  width, data };
+    return {  width, disableClose, data };
   }
 }

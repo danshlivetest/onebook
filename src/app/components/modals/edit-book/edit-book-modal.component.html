@@ -1,16 +1,25 @@
 
 <app-modal-header (whenClose)="close()">{{ header }}</app-modal-header>
-<mat-dialog-content>
-  <app-form-input label="Title" [control]="title"></app-form-input>
+<mat-dialog-content class="overflow-hidden">
+  <app-form-input label="Title" placeholder="Enter the title of your book" [control]="title"></app-form-input>
 
-  <div class="my-2 grid grid-cols-2 gap-2">
-    <app-form-input label="Author" [control]="author"></app-form-input>
-    <app-form-input label="Year" type="number" [control]="year"></app-form-input>
+  <div class="my-1 md:grid grid-cols-2 gap-2 max-w-full">
+    <div class="w-full">
+      <app-form-input label="Author" placeholder="Enter the author of the book" [control]="author"></app-form-input>
+    </div>
+
+    <div class="w-full">
+      <app-form-input label="Year" type="number" placeholder="Any realese date?" [control]="year"></app-form-input>
+    </div>
+  </div>
+
+  <div class="w-full max-full">
+    <app-form-textarea label="Description" placeholder="Write down some book description" [control]="description"></app-form-textarea>
   </div>
 
 </mat-dialog-content>
 <mat-dialog-actions>
-  <div class="w-full flex items-center justify-end">
+  <div class="w-full flex items-center justify-end gap-2">
     <app-button (whenClicked)="close()">Cancel</app-button>
     <app-button [type]="ButtonType.FLAT" (whenClicked)="save()">Save</app-button>
   </div>

@@ -16,6 +16,7 @@ import { SubsriptionsService } from '@shared/services'
 export class FormInputComponent implements OnInit {
   @Input() label!: string;
   @Input() type: 'text' | 'number' = 'text';
+  @Input() placeholder = 'Enter text';
   @Input() control: FormControl = new FormControl();
 
   errorMessage = signal('');

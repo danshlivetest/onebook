@@ -4,7 +4,7 @@ import { provideRouter, withComponentInputBinding, withRouterConfig } from '@ang
 
 import { routes } from './app.routes'
 import { provideMaterialConfig } from './material.provider'
-import { ModalService } from '@shared/services'
+import { ModalService, StorageService } from '@shared/services'
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +12,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideMaterialConfig(),
     ModalService,
+    StorageService,
     provideRouter(
       routes,
       withComponentInputBinding(),
