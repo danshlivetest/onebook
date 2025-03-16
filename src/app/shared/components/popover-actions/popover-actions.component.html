@@ -1,0 +1,8 @@
+<div [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+  <ng-content></ng-content>
+</div>
+<mat-menu #menu="matMenu">
+  @for(action of actions; track $index) {
+    <app-popover-action-item [action]="action" [entity]="entity"></app-popover-action-item>
+  }
+</mat-menu>

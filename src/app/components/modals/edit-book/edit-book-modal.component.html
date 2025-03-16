@@ -18,9 +18,4 @@
   </div>
 
 </mat-dialog-content>
-<mat-dialog-actions>
-  <div class="w-full flex items-center justify-end gap-2">
-    <app-button (whenClicked)="close()">Cancel</app-button>
-    <app-button [type]="ButtonType.FLAT" (whenClicked)="save()">Save</app-button>
-  </div>
-</mat-dialog-actions>
+<app-modal-footer cancelText="Cancel" confirmText="Save" (whenCancel)="close()" (whenConfirm)="save()"></app-modal-footer>

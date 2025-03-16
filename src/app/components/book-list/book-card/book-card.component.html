@@ -1,0 +1,19 @@
+<div
+  class="w-full md:w-[212px] h-[260px] p-4 rounded-lg cursor-pointer border border-primary/50 hover:border-primary shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+  (click)="viewDetails()">
+  <div>
+    <app-tooltip [message]="book.title">
+      <h5 class="text-primary line-clamp-2">{{ book.title }}</h5>
+    </app-tooltip>
+    <div class="flex items-center gap-1 text-gray-600">
+      <span>{{ book.author }}</span>
+      <span>({{ book.year }})</span>
+    </div>
+  </div>
+
+  <div class="flex w-full justify-end">
+    <app-popover-actions [actions]="actions" [entity]="book">
+      <app-icon-button [icon]="moreIcon"></app-icon-button>
+    </app-popover-actions>
+  </div>
+</div>

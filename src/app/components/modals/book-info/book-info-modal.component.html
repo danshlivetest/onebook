@@ -1,0 +1,13 @@
+<app-modal-header (whenClose)="close()">{{ book.title }}</app-modal-header>
+<mat-dialog-content>
+  <div class="w-full flex items-center gap-2">
+    <p>{{ book.author }}</p>
+    <p>({{ book.year }})</p>
+  </div>
+
+  @if(book.description) {
+    <div class="w-full max-h-[200px] overflow-auto custom-scrollbar mt-4">
+      <i>{{ book.description }}</i>
+    </div>
+  }
+</mat-dialog-content>

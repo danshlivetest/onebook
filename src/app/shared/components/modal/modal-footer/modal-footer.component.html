@@ -1,0 +1,6 @@
+<mat-dialog-actions>
+  <div class="w-full flex items-center justify-end gap-2">
+    <app-button (whenClicked)="whenCancel.emit()">{{ cancelText }}</app-button>
+    <app-button [type]="confirmButtonType" (whenClicked)="whenConfirm.emit()">{{ confirmText }}</app-button>
+  </div>
+</mat-dialog-actions>

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+
+import { ICON } from '@shared/consts'
 
 export enum IconColor {
   PRIMARY = 'primary',
@@ -13,6 +15,6 @@ export enum IconColor {
   imports: [MatIconModule]
 })
 export class IconComponent {
-  @Input() icon!: string;
+  @Input() icon!: ICON;
   @Input() color: IconColor = IconColor.PRIMARY;
 }

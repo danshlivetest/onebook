@@ -30,6 +30,7 @@
       "@shared/components": ["src/app/shared/components/index.ts"],
       "@shared/services": ["src/app/shared/services/index.ts"],
       "@shared/utils": ["src/app/shared/utils/index.ts"],
+      "@shared/consts": ["src/app/shared/consts/index.ts"],
       "@services": ["src/app/services/index.ts"],
       "@types": ["src/app/types/index.ts"],
     }

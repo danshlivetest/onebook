@@ -3,5 +3,5 @@
     <ng-content></ng-content>
   </h4>
 
-  <app-button prefixIcon="close" (whenClicked)="whenClose.emit()"></app-button>
+  <app-button [prefixIcon]="closeIcon" (whenClicked)="whenClose.emit()"></app-button>
 </div>

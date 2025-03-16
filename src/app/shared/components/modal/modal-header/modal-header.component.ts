@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common'
 import { Component, EventEmitter, Output } from '@angular/core';
 
 import { ButtonComponent } from '@shared/components'
+import { ICON } from '@shared/consts'
 
 @Component({
   selector: 'app-modal-header',
@@ -11,4 +12,6 @@ import { ButtonComponent } from '@shared/components'
 })
 export class ModalHeaderComponent {
   @Output() whenClose = new EventEmitter();
+
+  readonly closeIcon = ICON.CLOSE;
 }

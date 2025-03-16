@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button'
 
 import { IconComponent } from '../icon/icon.component'
 import { MatIconModule } from '@angular/material/icon'
+import { ICON } from '@shared/consts'
 
 export enum ButtonType {
   TEXT = 'text',
@@ -18,7 +19,7 @@ export enum ButtonType {
 })
 export class ButtonComponent {
   @Input() type: ButtonType = ButtonType.TEXT
-  @Input() prefixIcon = ''
+  @Input() prefixIcon!: ICON;
   @Output() whenClicked = new EventEmitter();
 
   readonly ButtonType = ButtonType

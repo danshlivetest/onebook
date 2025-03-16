@@ -1,0 +1,10 @@
+<app-modal-header (whenClose)="close()">{{ header }}</app-modal-header>
+<mat-dialog-content>
+  <p>{{ text }}</p>
+</mat-dialog-content>
+<app-modal-footer
+  [cancelText]="cancelText"
+  [confirmText]="confirmText"
+  (whenCancel)="close()"
+  (whenConfirm)="close(true)">
+</app-modal-footer>

@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef } from '@angular/material/dialog'
-import { ButtonComponent, ButtonType, FormInputComponent , FormTextareaComponent, ModalHeaderComponent } from '@shared/components'
+import { MAT_DIALOG_DATA, MatDialogContent, MatDialogRef } from '@angular/material/dialog'
+import { ButtonType, FormInputComponent , FormTextareaComponent, ModalFooterComponent, ModalHeaderComponent } from '@shared/components'
 import { Book, BookForm } from '@types';
 
 export interface EditBookModalData {
@@ -15,9 +15,8 @@ export interface EditBookModalData {
   standalone: true,
   imports: [
     MatDialogContent,
-    MatDialogActions,
-    ButtonComponent,
     ModalHeaderComponent,
+    ModalFooterComponent,
     FormInputComponent,
     FormTextareaComponent
   ]
