@@ -23,7 +23,7 @@ export class BookListComponent extends Pending implements OnInit {
   readonly addIcon = ICON.ADD;
   readonly search = signal('');
 
-  books: Book[] = [];
+  books = signal<Book[]>([]);
   popoverActions: Action[] = [];
 
   constructor(
@@ -95,7 +95,7 @@ export class BookListComponent extends Pending implements OnInit {
   private fetchBooks(): void {
     this.subsriptions.add(
      this.wait(this.bookStorageService.getBooks()).subscribe((books: Book[]) => {
-        this.books = books;
+        this.books.set(books);
       })
     );
   }
@@ -104,7 +104,7 @@ export class BookListComponent extends Pending implements OnInit {
     this.subsriptions.add(
       this.wait(this.bookStorageService.addBook(book)).subscribe({
         next: (book: Book) => {
-          this.books.push(book);
+          this.books.set([...this.books(), book]);
         },
         error: () => {
           console.error('Error saving book'); // It would be better to show a notification, but it's out of scope at the

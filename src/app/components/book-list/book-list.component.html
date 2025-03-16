@@ -9,7 +9,7 @@
       <app-button [prefixIcon]="addIcon">Add new</app-button>
     </div>
 
-    @for(book of books | filter:search():['title','author']; track book.id) {
+    @for(book of books() | filter:search():['title','author']; track book.id) {
       <app-book-card class="w-full md:w-[212px] transition-all" [book]="book" [actions]="popoverActions"></app-book-card>
     }
   </div>
