@@ -31,6 +31,7 @@
       "@shared/services": ["src/app/shared/services/index.ts"],
       "@shared/utils": ["src/app/shared/utils/index.ts"],
       "@shared/consts": ["src/app/shared/consts/index.ts"],
+      "@shared/pipes": ["src/app/shared/pipes/index.ts"],
       "@services": ["src/app/services/index.ts"],
       "@types": ["src/app/types/index.ts"],
     }

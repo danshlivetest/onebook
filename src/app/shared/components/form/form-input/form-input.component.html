@@ -1,6 +1,13 @@
-<p class="text-base mb-1">{{ label }}</p>
+@if(label) {
+  <p class="text-base mb-1">{{ label }}</p>
+}
 <mat-form-field appearance="outline" class="w-full">
+  @if(prefixIcon) {
+    <mat-icon matPrefix>{{ prefixIcon }}</mat-icon>
+  }
+
   <input matInput [formControl]="control" [type]="type" [placeholder]="placeholder" />
+
   @if (control.invalid) {
     <mat-error>{{errorMessage()}}</mat-error>
   }

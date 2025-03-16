@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common'
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 
-import { IconColor, ButtonComponent, Action } from '@shared/components';
+import { IconColor, ButtonComponent, Action, SearchComponent } from '@shared/components';
 import { BookModalsService, BookStorageService } from '@services'
 import { SubsriptionsService } from '@shared/services'
 import { Book } from '@types'
@@ -9,21 +9,22 @@ import { LoadingSpinnerComponent } from 'src/app/shared/components/loading-spinn
 import { Pending } from '@shared/utils';
 import { BookCardComponent } from './book-card/book-card.component'
 import { ICON } from '@shared/consts'
+import { FilterPipe } from '@shared/pipes'
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, LoadingSpinnerComponent, BookCardComponent],
+  imports: [CommonModule, ButtonComponent, LoadingSpinnerComponent, BookCardComponent, SearchComponent, FilterPipe],
   providers: [BookModalsService, SubsriptionsService, BookStorageService]
 })
 export class BookListComponent extends Pending implements OnInit {
   readonly IconColor = IconColor;
   readonly addIcon = ICON.ADD;
+  readonly search = signal('');
 
   books: Book[] = [];
   popoverActions: Action[] = [];
-
 
   constructor(
     private bookModalsService: BookModalsService,

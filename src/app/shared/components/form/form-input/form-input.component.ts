@@ -2,21 +2,24 @@ import { Component, Input, OnInit, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { merge } from 'rxjs'
 
 import { SubsriptionsService } from '@shared/services'
+import { ICON } from '@shared/consts'
 
 @Component({
   selector: 'app-form-input',
   templateUrl: './form-input.component.html',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule],
+  imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatIconModule],
   providers: [SubsriptionsService]
 })
 export class FormInputComponent implements OnInit {
   @Input() label!: string;
   @Input() type: 'text' | 'number' = 'text';
   @Input() placeholder = 'Enter text';
+  @Input() prefixIcon!: ICON;
   @Input() control: FormControl = new FormControl();
 
   errorMessage = signal('');

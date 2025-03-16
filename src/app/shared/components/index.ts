@@ -8,3 +8,4 @@ export * from './tooltip/tooltip.component';
 export * from './popover-actions/popover-actions.component';
 export * from './popover-actions/popover-action-item/popover-action-item.component';
 export * from './icon-button/icon-button.component';
+export * from './search/search.component';
